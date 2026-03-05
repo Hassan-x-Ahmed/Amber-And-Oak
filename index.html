@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amber & Oak | Slow mornings. Honest flavors.</title>
+  <link rel="stylesheet" href="/client/css/style.css">
+</head>
+<body class="font-sans text-brand-charcoal bg-brand-cream antialiased selection:bg-brand-orange selection:text-white">
+
+  <header id="navbar" class="fixed w-full top-0 z-50 transition-colors duration-300 bg-transparent text-white py-4">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <a href="#" class="font-serif text-2xl font-semibold tracking-wide">Amber & Oak</a>
+      
+      <nav class="hidden md:flex space-x-8 items-center text-sm uppercase tracking-widest">
+        <a href="#home" class="hover:text-brand-orange transition-colors">Home</a>
+        <a href="#about" class="hover:text-brand-orange transition-colors">About</a>
+        <a href="#menu" class="hover:text-brand-orange transition-colors">Menu</a>
+        <a href="#contact" class="hover:text-brand-orange transition-colors">Contact</a>
+        <a href="#reservations" class="bg-brand-orange text-white px-6 py-2 rounded-sm hover:bg-[#a64b24] transition-colors">Reserve a Table</a>
+      </nav>
+
+      <button id="mobile-menu-btn" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-brown text-white absolute w-full top-full left-0 py-4 shadow-lg">
+      <nav class="flex flex-col items-center space-y-4">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#menu" class="mobile-link">Menu</a>
+        <a href="#reservations" class="text-brand-orange font-semibold mobile-link">Reserve a Table</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center"></div>
+    <div class="absolute inset-0 bg-brand-brown/60 mix-blend-multiply"></div>
+    
+    <div class="relative z-10 text-center px-6 max-w-3xl">
+      <h1 class="font-serif text-5xl md:text-7xl text-white mb-6 leading-tight">Slow mornings.<br>Honest flavors.</h1>
+      <p class="text-brand-cream text-lg md:text-xl font-light mb-10">Experience the subtle luxury of handcrafted coffee and locally sourced ingredients in an atmosphere designed for lingering.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#reservations" class="bg-brand-orange text-white px-8 py-3 rounded-sm hover:bg-[#a64b24] transition-colors uppercase tracking-wider text-sm">Reserve a Table</a>
+        <a href="#menu" class="border border-brand-cream text-brand-cream px-8 py-3 rounded-sm hover:bg-brand-cream hover:text-brand-brown transition-colors uppercase tracking-wider text-sm">View Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="overflow-hidden rounded-sm shadow-xl">
+        <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?q=80&w=1000&auto=format&fit=crop" alt="Pouring coffee" class="w-full h-auto img-hover-zoom">
+      </div>
+      <div>
+        <h2 class="font-serif text-4xl text-brand-brown mb-6">A Return to Craft</h2>
+        <p class="text-brand-charcoal/80 mb-6 leading-relaxed">At Amber & Oak, we believe that the best things in life take time. Our vintage-inspired space was curated to offer an escape from the rush of the modern world. </p>
+        <p class="text-brand-charcoal/80 mb-8 leading-relaxed">Every ingredient we use is ethically sourced from local purveyors who share our dedication to quality. From our small-batch roasted espresso to our house-made pastries, every detail is considered.</p>
+        <a href="#about" class="text-brand-olive uppercase tracking-widest text-sm font-semibold border-b border-brand-olive pb-1 hover:text-brand-brown hover:border-brand-brown transition-colors">Read Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu" class="py-24 bg-white px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-4xl text-brand-brown mb-4">Curated Offerings</h2>
+        <p class="text-brand-charcoal/70 max-w-2xl mx-auto">A selection of our most beloved creations, prepared daily with intention.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-10">
+        <article class="group cursor-pointer">
+          <div class="overflow-hidden mb-4 rounded-sm">
+            <img src="https://images.unsplash.com/photo-1600181516260-ecf23d24294c?q=80&w=600&auto=format&fit=crop" alt="Avocado Tartine" class="w-full h-64 object-cover img-hover-zoom">
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-serif text-xl text-brand-brown">Heirloom Tartine</h3>
+            <span class="text-brand-olive font-medium">$14</span>
+          </div>
+          <p class="text-sm text-brand-charcoal/70 leading-relaxed">Whipped ricotta, blistered heirloom tomatoes, and micro-basil on rustic sourdough.</p>
+        </article>
+
+        <article class="group cursor-pointer">
+          <div class="overflow-hidden mb-4 rounded-sm">
+            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=600&auto=format&fit=crop" alt="Latte Art" class="w-full h-64 object-cover img-hover-zoom">
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-serif text-xl text-brand-brown">Oak Smoked Mocha</h3>
+            <span class="text-brand-olive font-medium">$7</span>
+          </div>
+          <p class="text-sm text-brand-charcoal/70 leading-relaxed">Single-origin espresso, Valrhona chocolate, and a whisper of smoked sea salt.</p>
+        </article>
+
+        <article class="group cursor-pointer">
+          <div class="overflow-hidden mb-4 rounded-sm">
+            <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?q=80&w=600&auto=format&fit=crop" alt="Pistachio Croissant" class="w-full h-64 object-cover img-hover-zoom">
+          </div>
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="font-serif text-xl text-brand-brown">Pistachio Rose Croissant</h3>
+            <span class="text-brand-olive font-medium">$8</span>
+          </div>
+          <p class="text-sm text-brand-charcoal/70 leading-relaxed">Twice-baked butter croissant filled with pistachio frangipane and dusted with candied rose.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reservations" class="py-24 bg-brand-cream px-6">
+    <div class="max-w-4xl mx-auto bg-white p-10 md:p-14 shadow-sm rounded-sm">
+      <div class="text-center mb-10">
+        <h2 class="font-serif text-4xl text-brand-brown mb-4">Secure a Table</h2>
+        <p class="text-brand-charcoal/70">Join us for an intimate experience. We accept reservations up to 30 days in advance.</p>
+      </div>
+
+      <div id="reservation-message" class="hidden text-center p-6 bg-brand-olive/10 text-brand-olive mb-6 rounded-sm border border-brand-olive/20"></div>
+
+      <form id="reservation-form" class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="fullName" class="block text-sm font-medium text-brand-charcoal mb-2">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required class="w-full border border-gray-300 px-4 py-3 rounded-sm focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors bg-brand-cream/30">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-brand-charcoal mb-2">Email Address</label>
+            <input type="email" id="email" name="email" required class="w-full border border-gray-300 px-4 py-3 rounded-sm focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors bg-brand-cream/30">
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <label for="phone" class="block text-sm font-medium text-brand-charcoal mb-2">Phone</label>
+            <input type="tel" id="phone" name="phone" required class="w-full border border-gray-300 px-4 py-3 rounded-sm focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors bg-brand-cream/30">
+          </div>
+          <div>
+            <label for="guests" class="block text-sm font-medium text-brand-charcoal mb-2">Guests</label>
+            <select id="guests" name="guests" class="w-full border border-gray-300 px-4 py-3 rounded-sm focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors bg-brand-cream/30">
+              <option value="1">1 Person</option>
+              <option value="2" selected>2 People</option>
+              <option value="3">3 People</option>
+              <option value="4">4 People</option>
+              <option value="5+">5+ (Call Us)</option>
+            </select>
+          </div>
+          <div>
+            <label for="date" class="block text-sm font-medium text-brand-charcoal mb-2">Date</label>
+            <input type="date" id="date" name="date" required class="w-full border border-gray-300 px-4 py-3 rounded-sm focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors bg-brand-cream/30">
+          </div>
+        </div>
+
+        <div>
+          <label for="requests" class="block text-sm font-medium text-brand-charcoal mb-2">Special Requests (Optional)</label>
+          <textarea id="requests" name="requests" rows="3" class="w-full border border-gray-300 px-4 py-3 rounded-sm focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors bg-brand-cream/30"></textarea>
+        </div>
+
+        <button type="submit" id="submit-btn" class="w-full bg-brand-brown text-white py-4 rounded-sm hover:bg-[#2c1b18] transition-colors uppercase tracking-widest text-sm font-semibold">
+          Confirm Reservation
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <footer id="contact" class="bg-brand-brown text-brand-cream py-16 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12">
+      <div>
+        <h4 class="font-serif text-2xl mb-6 text-white">Amber & Oak</h4>
+        <p class="text-sm opacity-80 mb-2">124 Vintage Lane, Heritage District</p>
+        <p class="text-sm opacity-80 mb-4">Metropolis, NY 10012</p>
+        <p class="text-sm opacity-80">hello@amberandoak.com</p>
+        <p class="text-sm opacity-80">+1 (555) 123-4567</p>
+      </div>
+      
+      <div>
+        <h4 class="font-sans uppercase tracking-widest text-sm font-semibold mb-6 text-white">Opening Hours</h4>
+        <ul class="text-sm opacity-80 space-y-2">
+          <li class="flex justify-between"><span>Mon - Fri</span> <span>7:00 AM - 4:00 PM</span></li>
+          <li class="flex justify-between"><span>Saturday</span> <span>8:00 AM - 5:00 PM</span></li>
+          <li class="flex justify-between"><span>Sunday</span> <span>8:00 AM - 2:00 PM</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-sans uppercase tracking-widest text-sm font-semibold mb-6 text-white">Newsletter</h4>
+        <p class="text-sm opacity-80 mb-4">Subscribe for seasonal menu updates and event invitations.</p>
+        <form class="flex">
+          <input type="email" placeholder="Your email address" class="w-full bg-transparent border-b border-brand-cream/50 px-2 py-2 text-sm focus:outline-none focus:border-brand-orange transition-colors text-white placeholder-brand-cream/50">
+          <button type="button" class="ml-4 text-brand-orange hover:text-white uppercase text-sm tracking-wide transition-colors">Join</button>
+        </form>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-brand-cream/20 text-center text-xs opacity-60">
+      &copy; 2026 Amber & Oak. All rights reserved.
+    </div>
+  </footer>
+
+  <script type="module" src="/client/js/main.js"></script>
+  <script type="module" src="/client/js/reservation.js"></script>
+</body>
+</html>
