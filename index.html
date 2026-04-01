@@ -10,7 +10,7 @@
 </head>
 <body class="font-sans text-brand-charcoal bg-brand-cream antialiased selection:bg-brand-orange selection:text-white">
 
-  <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-gradient-to-b from-black/80 to-transparent text-white py-6" data-aos="fade-down" data-aos-duration="1000">
+ <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-gradient-to-b from-black/80 to-transparent text-white py-6" data-aos="fade-down" data-aos-duration="1000">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
       <a href="#" class="font-serif text-2xl font-semibold tracking-wide">Amber & Oak</a>
       
@@ -22,22 +22,35 @@
         <a href="#reservations" class="bg-brand-orange text-white px-6 py-2 rounded-sm hover:bg-[#a64b24] transition-colors">Reserve a Table</a>
       </nav>
 
-      <button id="mobile-menu-btn" class="md:hidden focus:outline-none">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <button id="mobile-menu-btn" class="md:hidden focus:outline-none text-white hover:text-brand-orange transition-colors">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
     
-    <div id="mobile-menu" class="hidden md:hidden bg-brand-brown text-white absolute w-full top-full left-0 py-4 shadow-lg">
-      <nav class="flex flex-col items-center space-y-4">
-        <a href="#home" class="mobile-link">Home</a>
-        <a href="#about" class="mobile-link">About</a>
-        <a href="/menu.html" class="mobile-link">Menu</a>
-        <a href="#reservations" class="text-brand-orange font-semibold mobile-link">Reserve a Table</a>
-      </nav>
+   <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 z-[90] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+<div id="mobile-menu" class="fixed top-0 right-0 w-3/4 max-w-sm bg-stone-900 z-[100] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col pt-24 px-8 md:hidden h-screen shadow-2xl border-l border-stone-800">
+    
+    <button id="close-mobile-menu" class="absolute top-6 right-6 text-stone-400 hover:text-white transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-stone-800">
+        <i class="fa-solid fa-xmark text-xl"></i>
+    </button>
+
+    <div class="flex flex-col space-y-8 font-serif text-2xl text-stone-300">
+        <a href="#home" class="mobile-link hover:text-amber-400 transition-colors" data-target="home">Home</a>
+        <a href="#about" class="mobile-link hover:text-amber-400 transition-colors" data-target="about">Our Story</a>
+        <a href="/menu.html" class="hover:text-amber-400 transition-colors">The Menu</a>
+        <a href="#contact" class="mobile-link hover:text-amber-400 transition-colors" data-target="contact">Contact</a>
+        
+        <div class="w-full h-[1px] bg-stone-800 my-4"></div>
+        
+        <a href="#reservations" class="mobile-link text-sm font-sans font-bold uppercase tracking-[0.2em] text-white bg-amber-800 py-4 rounded-sm hover:bg-amber-900 transition-colors w-full text-center shadow-lg" data-target="reservations">
+            Reserve a Table
+        </a>
     </div>
-  </header>
+</div>
+</header>
 
   <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000&auto=format&fit=crop');">
     <div class="absolute inset-0 bg-brand-brown/70 mix-blend-multiply z-10"></div>
@@ -78,7 +91,7 @@
       <div class="grid md:grid-cols-3 gap-10">
         <article class="group cursor-pointer" data-aos="fade-up" data-aos-delay="0">
           <div class="overflow-hidden mb-4 rounded-sm">
-            <img src="https://images.unsplash.com/photo-1600181516260-ecf23d24294c?q=80&w=600&auto=format&fit=crop" alt="Avocado Tartine" class="w-full h-64 object-cover img-hover-zoom transform group-hover:scale-105 transition-transform duration-700">
+           <img src="https://images.unsplash.com/photo-1482049142915-52a4e43f3b53?q=80&w=600&auto=format&fit=crop" alt="Heirloom Tartine" class="w-full h-64 object-cover img-hover-zoom transform group-hover:scale-105 transition-transform duration-700">
           </div>
           <div class="flex justify-between items-start mb-2">
             <h3 class="font-serif text-xl text-brand-brown group-hover:text-brand-orange transition-colors">Heirloom Tartine</h3>
@@ -119,9 +132,22 @@
   <section id="reservations" class="py-24 bg-brand-cream px-6">
     <div class="max-w-4xl mx-auto bg-white p-10 md:p-14 shadow-xl rounded-sm border border-brand-brown/5" data-aos="zoom-in-up" data-aos-duration="1000">
       <div class="text-center mb-10">
-        <h2 class="font-serif text-4xl text-brand-brown mb-4">Secure a Table</h2>
-        <p class="text-brand-charcoal/70">Join us for an intimate experience. We accept reservations up to 30 days in advance.</p>
-      </div>
+    <h2 class="font-serif text-4xl text-brand-brown mb-4">Secure a Table</h2>
+    <p class="text-brand-charcoal/70 mb-8">Join us for an intimate experience. We accept reservations up to 30 days in advance.</p>
+
+    <div class="bg-brand-cream/50 border border-brand-orange/30 p-6 md:p-8 rounded-sm max-w-2xl mx-auto relative overflow-hidden group hover:bg-brand-cream transition-colors duration-500 shadow-sm">
+        <div class="absolute top-0 left-0 w-1 h-full bg-brand-orange"></div>
+        
+        <h3 class="font-serif text-xl text-brand-brown font-semibold mb-3 flex items-center justify-center gap-3">
+            <svg class="w-5 h-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+            Enhance Your Experience
+        </h3>
+        
+        <p class="text-sm text-brand-charcoal/80 leading-relaxed max-w-lg mx-auto">
+            Once your table is secured, you will receive a unique <span class="font-semibold text-brand-brown">Reservation Token</span>. Use this token on our <a href="/menu.html" class="text-brand-orange font-semibold hover:underline">Interactive Menu</a> to pre-order your dishes, perfectly timed for your arrival.
+        </p>
+    </div>
+</div>
 
       <div id="reservation-message" class="hidden text-center p-6 bg-brand-olive/10 text-brand-olive mb-6 rounded-sm border border-brand-olive/20"></div>
 

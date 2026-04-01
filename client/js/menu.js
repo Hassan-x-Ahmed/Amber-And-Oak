@@ -235,6 +235,72 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    // ==========================================
+    // 📱 MOBILE MENU LOGIC
+    // ==========================================
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    
+    // Search Elements
+    const mobileSearchInput = document.getElementById('mobile-search-input');
+    const mobileSearchBtn = document.getElementById('mobile-search-btn');
+    const desktopSearchInput = document.getElementById('menu-search');
+
+    if (mobileMenuBtn && closeMobileMenuBtn && mobileMenu) {
+        // Open Menu
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+            if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'hidden'; 
+        });
+
+        // Close Menu
+        const closeMenu = () => {
+            mobileMenu.classList.add('translate-x-full');
+            if (mobileMenuOverlay) mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
+            document.body.style.overflow = 'auto'; 
+        };
+
+        // Close Triggers
+        closeMobileMenuBtn.addEventListener('click', closeMenu);
+        if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // 🌟 Smart Mobile Search Function
+        const executeMobileSearch = () => {
+            if (mobileSearchInput && desktopSearchInput) {
+                // 1. Sync the text to the hidden desktop search
+                desktopSearchInput.value = mobileSearchInput.value;
+                // 2. Fire the search algorithm
+                desktopSearchInput.dispatchEvent(new Event('input'));
+                // 3. Close the sidebar
+                closeMenu();
+                // 4. Smoothly scroll down to the food grid!
+                document.getElementById('interactive-menu').scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+
+        // Live filtering while they type (so they can see the background changing)
+        if (mobileSearchInput && desktopSearchInput) {
+            mobileSearchInput.addEventListener('input', () => {
+                desktopSearchInput.value = mobileSearchInput.value;
+                desktopSearchInput.dispatchEvent(new Event('input'));
+            });
+            
+            // Execute full scroll/close if they hit "Enter" on their phone keyboard
+            mobileSearchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') executeMobileSearch();
+            });
+        }
+
+        // Execute full scroll/close if they click the magnifying glass
+        if (mobileSearchBtn) {
+            mobileSearchBtn.addEventListener('click', executeMobileSearch);
+        }
+    }
 });
 
 // ==========================================
@@ -329,32 +395,33 @@ function renderCards(itemsToRender) {
                     tagsHtml += `<span class="px-2 py-1 text-[9px] uppercase tracking-wider font-bold rounded-sm shadow-sm border ${color}">${tag}</span>`;
                 });
 
+                // Updated Mobile-Responsive Card HTML
                 card.innerHTML = `
-                    <div class="h-56 overflow-hidden relative">
+                    <div class="h-32 md:h-56 overflow-hidden relative">
                         <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute top-3 left-3 flex gap-2 z-10">${tagsHtml}</div>
+                        <div class="absolute top-2 left-2 flex flex-wrap gap-1 z-10">${tagsHtml}</div>
                         
                         <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
 
-                        <div class="absolute bottom-3 right-4 z-20 overflow-hidden">
+                        <div class="absolute bottom-2 right-2 md:bottom-3 md:right-4 z-20 overflow-hidden hidden md:block">
                             <span class="quick-add-btn block font-serif italic text-sm text-white font-medium hover:text-amber-400 transform -translate-x-8 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500 ease-out drop-shadow-md">
                                 Add to cart &rarr;
                             </span>
                         </div>
                     </div>
                     
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex justify-between items-start mb-2 gap-4">
-                            <h3 class="text-xl font-serif font-bold text-stone-900 leading-tight group-hover:text-amber-700 transition-colors">${item.name}</h3>
-                            <span class="text-lg text-amber-700 font-medium">$${item.price}</span>
+                    <div class="p-3 md:p-6 flex flex-col flex-grow">
+                        <div class="flex justify-between items-start mb-1 md:mb-2 gap-2">
+                            <h3 class="text-sm md:text-xl font-serif font-bold text-stone-900 leading-tight group-hover:text-amber-700 transition-colors">${item.name}</h3>
+                            <span class="text-xs md:text-lg text-amber-700 font-medium">$${item.price}</span>
                         </div>
-                        <p class="text-sm text-stone-500 line-clamp-2 leading-relaxed italic mb-4">${item.description}</p>
-                        <div class="mt-auto pt-4 border-t border-stone-200">
-                            <span class="text-xs font-semibold tracking-widest uppercase text-stone-400 group-hover:text-amber-700 transition-colors">View Details &rarr;</span>
+                        <p class="text-[10px] md:text-sm text-stone-500 line-clamp-2 leading-relaxed italic mb-2 md:mb-4">${item.description}</p>
+                        
+                        <div class="mt-auto pt-2 md:pt-4 border-t border-stone-200">
+                            <span class="text-[9px] md:text-xs font-semibold tracking-widest uppercase text-stone-400 group-hover:text-amber-700 transition-colors">Details &rarr;</span>
                         </div>
                     </div>
-                `;
-                
+                `;                
                 card.addEventListener('click', (e) => {
                     if (e.target.closest('.quick-add-btn')) {
                         addToCart(item); 
