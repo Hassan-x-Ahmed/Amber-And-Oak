@@ -9,48 +9,116 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body class="font-sans text-brand-charcoal bg-brand-cream antialiased selection:bg-brand-orange selection:text-white">
-
- <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-gradient-to-b from-black/80 to-transparent text-white py-6" data-aos="fade-down" data-aos-duration="1000">
+<header id="navbar" class="fixed w-full top-0 z-[100] transition-all duration-300 py-4">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-      <a href="#" class="font-serif text-2xl font-semibold tracking-wide">Amber & Oak</a>
-      
-      <nav class="hidden md:flex space-x-8 items-center text-sm uppercase tracking-widest">
-        <a href="#home" class="hover:text-brand-orange transition-colors">Home</a>
-        <a href="#about" class="hover:text-brand-orange transition-colors">About</a>
-        <a href="/menu.html" class="hover:text-amber-400 transition-colors border-b border-transparent hover:border-amber-400 pb-1">MENU</a>
-        <a href="#contact" class="hover:text-brand-orange transition-colors">Contact</a>
-        <a href="#reservations" class="bg-brand-orange text-white px-6 py-2 rounded-sm hover:bg-[#a64b24] transition-colors">Reserve a Table</a>
-      </nav>
-
-      <button id="mobile-menu-btn" class="md:hidden focus:outline-none text-white hover:text-brand-orange transition-colors">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-    
-   <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 z-[90] opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
-
-<div id="mobile-menu" class="fixed top-0 right-0 w-3/4 max-w-sm bg-stone-900 z-[100] transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col pt-24 px-8 md:hidden h-screen shadow-2xl border-l border-stone-800">
-    
-    <button id="close-mobile-menu" class="absolute top-6 right-6 text-stone-400 hover:text-white transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-stone-800">
-        <i class="fa-solid fa-xmark text-xl"></i>
-    </button>
-
-    <div class="flex flex-col space-y-8 font-serif text-2xl text-stone-300">
-        <a href="#home" class="mobile-link hover:text-amber-400 transition-colors" data-target="home">Home</a>
-        <a href="#about" class="mobile-link hover:text-amber-400 transition-colors" data-target="about">Our Story</a>
-        <a href="/menu.html" class="hover:text-amber-400 transition-colors">The Menu</a>
-        <a href="#contact" class="mobile-link hover:text-amber-400 transition-colors" data-target="contact">Contact</a>
         
-        <div class="w-full h-[1px] bg-stone-800 my-4"></div>
+       <a href="index.html" class="text-[#F2EFE9] text-3xl md:text-4xl font-serif tracking-widest z-[100] relative hover:opacity-80 transition-opacity">
+    Amber <span class="text-[#E67E22]">&</span> Oak
+</a>
         
-        <a href="#reservations" class="mobile-link text-sm font-sans font-bold uppercase tracking-[0.2em] text-white bg-amber-800 py-4 rounded-sm hover:bg-amber-900 transition-colors w-full text-center shadow-lg" data-target="reservations">
-            Reserve a Table
-        </a>
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="#home" class="text-[#F2EFE9]/90 hover:text-[#D4AF37] transition-colors duration-300 text-sm tracking-[0.2em] uppercase font-medium">Home</a>
+            <a href="#about" class="text-[#F2EFE9]/90 hover:text-[#D4AF37] transition-colors duration-300 text-sm tracking-[0.2em] uppercase font-medium">About</a>
+            <a href="menu.html" class="text-[#F2EFE9]/90 hover:text-[#D4AF37] transition-colors duration-300 text-sm tracking-[0.2em] uppercase font-medium">Menu</a>
+            <a href="#contact" class="text-[#F2EFE9]/90 hover:text-[#D4AF37] transition-colors duration-300 text-sm tracking-[0.2em] uppercase font-medium">Contact</a>
+            
+            <a href="#reservations" class="group relative inline-flex items-center justify-center px-8 py-3 bg-[#E67E22] text-white font-medium tracking-widest text-sm uppercase overflow-hidden transition-transform active:scale-95 z-[100]">
+                <span class="absolute inset-0 w-full h-full bg-[#D4AF37] -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.85,0,0.15,1)]"></span>
+                <span class="relative z-10 group-hover:text-[#1a1512] transition-colors duration-500">Reserve a Table</span>
+            </a>
+        </nav>
+
+        <button id="mobile-menu-btn" class="relative z-[100] flex flex-col justify-center items-center w-12 h-12 group focus:outline-none md:hidden">
+            <span class="line-1 h-[2px] w-8 bg-white transition-all duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] transform origin-center mb-2"></span>
+            <span class="line-2 h-[2px] w-8 bg-white transition-all duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] mb-2"></span>
+            <span class="line-3 h-[2px] w-8 bg-white transition-all duration-500 ease-[cubic-bezier(0.85,0,0.15,1)] transform origin-center"></span>
+        </button>
+        
     </div>
-</div>
 </header>
+<div id="mobile-menu" class="fixed top-0 left-0 w-full h-[100dvh] bg-[#1a1512] z-[90] flex flex-col justify-center items-center transform -translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.85,0,0.15,1)]">
+    
+    <!-- Ambient background elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-20 left-10 w-72 h-72 bg-[#D4AF37]/5 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#D4AF37]/3 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Menu counter / status -->
+    <div class="absolute top-12 left-0 right-0 text-center">
+        <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+            <span class="w-1.5 h-1.5 bg-[#D4AF37] rounded-full animate-pulse"></span>
+            <span class="text-white/40 text-xs tracking-[0.2em] font-mono">MAIN MENU</span>
+            <span class="text-white/20 text-xs font-mono">04</span>
+        </div>
+    </div>
+
+    <!-- Navigation with redesigned buttons -->
+    <nav class="flex flex-col items-center space-y-10 text-center relative z-10">
+        <a href="#home" data-target="home" class="mobile-link group relative text-6xl md:text-7xl font-serif transition-all duration-500">
+            <span class="absolute -left-12 top-1/2 -translate-y-1/2 text-[#D4AF37] text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">/</span>
+            <span class="relative inline-block text-white/90 group-hover:text-[#D4AF37] transition-colors duration-500 group-hover:tracking-wider">
+                Home
+                <span class="absolute -bottom-2 left-0 w-0 h-px bg-[#D4AF37] group-hover:w-full transition-all duration-500"></span>
+            </span>
+        </a>
+        
+        <a href="#about" data-target="about" class="mobile-link group relative text-6xl md:text-7xl font-serif transition-all duration-500">
+            <span class="absolute -left-12 top-1/2 -translate-y-1/2 text-[#D4AF37] text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">/</span>
+            <span class="relative inline-block text-white/90 group-hover:text-[#D4AF37] transition-colors duration-500 group-hover:tracking-wider">
+                About
+                <span class="absolute -bottom-2 left-0 w-0 h-px bg-[#D4AF37] group-hover:w-full transition-all duration-500"></span>
+            </span>
+        </a>
+        
+        <a href="menu.html" class="mobile-link group relative text-6xl md:text-7xl font-serif transition-all duration-500">
+            <span class="absolute -left-12 top-1/2 -translate-y-1/2 text-[#D4AF37] text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">/</span>
+            <span class="relative inline-block text-white/90 group-hover:text-[#D4AF37] transition-colors duration-500 group-hover:tracking-wider">
+                Menu
+                <span class="absolute -bottom-2 left-0 w-0 h-px bg-[#D4AF37] group-hover:w-full transition-all duration-500"></span>
+            </span>
+        </a>
+        
+        <a href="#contact" data-target="contact" class="mobile-link group relative text-6xl md:text-7xl font-serif transition-all duration-500">
+            <span class="absolute -left-12 top-1/2 -translate-y-1/2 text-[#D4AF37] text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">/</span>
+            <span class="relative inline-block text-white/90 group-hover:text-[#D4AF37] transition-colors duration-500 group-hover:tracking-wider">
+                Contact
+                <span class="absolute -bottom-2 left-0 w-0 h-px bg-[#D4AF37] group-hover:w-full transition-all duration-500"></span>
+            </span>
+        </a>
+    </nav>
+
+    <!-- Enhanced bottom section -->
+    <div class="absolute bottom-10 left-0 right-0 text-center space-y-6">
+        <!-- Divider line -->
+        <div class="w-12 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/30 to-transparent mx-auto"></div>
+        
+        <!-- Social / meta row -->
+        <div class="flex gap-8 justify-center">
+            <a href="#" class="text-white/30 text-xs tracking-[0.2em] font-mono hover:text-[#D4AF37] transition-all duration-300 hover:tracking-wider">INSTA</a>
+            <a href="#" class="text-white/30 text-xs tracking-[0.2em] font-mono hover:text-[#D4AF37] transition-all duration-300 hover:tracking-wider">FB</a>
+            <a href="#" class="text-white/30 text-xs tracking-[0.2em] font-mono hover:text-[#D4AF37] transition-all duration-300 hover:tracking-wider">BE</a>
+        </div>
+        
+        <!-- Brand -->
+        <div>
+            <p class="text-[#D4AF37] font-serif italic text-xl mb-1">Amber & Oak</p>
+            <p class="text-white/30 text-xs uppercase tracking-[0.3em] flex items-center gap-2 justify-center">
+                <span class="w-1 h-1 bg-[#D4AF37] rounded-full"></span>
+                Est. 2026
+                <span class="w-1 h-1 bg-[#D4AF37] rounded-full"></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- Close button (optional - add if you have a hamburger toggle) -->
+    <button id="close-menu" class="absolute top-8 right-8 text-white/60 hover:text-[#D4AF37] transition-colors duration-300 z-20">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+    </button>
+</div>
 
   <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-fixed bg-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2000&auto=format&fit=crop');">
     <div class="absolute inset-0 bg-brand-brown/70 mix-blend-multiply z-10"></div>

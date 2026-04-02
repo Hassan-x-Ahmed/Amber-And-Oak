@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
     const mobileLinks = document.querySelectorAll('.mobile-link');
     const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
-   
+    
     // 2. Initialize AOS Scroll Animations
     if (typeof AOS !== 'undefined') {
         AOS.init({
@@ -33,64 +33,76 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Mobile Menu Toggle Logic
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+    // ==========================================
+    // 4. AWWWARDS MOBILE MENU & CURTAIN LOGIC
+    // ==========================================
 
-        // Close mobile menu on link click
+    
+    if (mobileMenuBtn && mobileMenu) {
+        // Grab the three lines of the hamburger button
+        const l1 = mobileMenuBtn.querySelector('.line-1');
+        const l2 = mobileMenuBtn.querySelector('.line-2');
+        const l3 = mobileMenuBtn.querySelector('.line-3');
+        
+        let isMenuOpen = false;
+
+        const toggleMenu = () => {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                // OPENING: Drop the curtain
+                mobileMenu.classList.remove('-translate-y-full');
+                mobileMenu.classList.add('translate-y-0');
+                document.body.style.overflow = 'hidden'; // Lock scrolling
+                
+                // MORPH to 'X':
+                l1.classList.add('translate-y-[10px]', 'rotate-45');
+                l2.classList.add('opacity-0', 'translate-x-4'); // slide middle line out
+                l3.classList.add('-translate-y-[10px]', '-rotate-45');
+            } else {
+                // CLOSING: Lift the curtain
+                mobileMenu.classList.remove('translate-y-0');
+                mobileMenu.classList.add('-translate-y-full');
+                document.body.style.overflow = 'auto'; // Unlock scrolling
+                
+                // MORPH back to Hamburger:
+                l1.classList.remove('translate-y-[10px]', 'rotate-45');
+                l2.classList.remove('opacity-0', 'translate-x-4');
+                l3.classList.remove('-translate-y-[10px]', '-rotate-45');
+            }
+        };
+
+        // Click the Hamburger
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+
+      
+        // 🚀 The "Scroll & Delay Navigation" Trick
         mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+            link.addEventListener('click', (e) => {
+                const targetId = link.getAttribute('data-target');
+                const targetElement = targetId ? document.getElementById(targetId) : null;
+
+                // 1. If it's a section on the SAME page (Home, About, Contact)
+                if (targetElement) {
+                    e.preventDefault(); 
+                    targetElement.scrollIntoView({ behavior: 'auto', block: 'start' });
+                    
+                    setTimeout(() => {
+                        toggleMenu(); 
+                    }, 200); 
+                } 
+                // 2. If it's a link to a DIFFERENT page (like menu.html)
+                else if (link.getAttribute('href')) {
+                    e.preventDefault(); // Stop the instant jump
+                    
+                    toggleMenu(); // Lift the curtain first!
+                    
+                    // Wait 700ms for the curtain animation to finish, then load the new page
+                    setTimeout(() => {
+                        window.location.href = link.getAttribute('href');
+                    }, 700);
+                }
             });
         });
     }
- // ==========================================
-// 📱 MOBILE MENU & SMOOTH SCROLL LOGIC
-// ==========================================
- 
-if (mobileMenuBtn && mobileMenu) {
-    
-    // Function to Close Menu
-    const closeMenu = () => {
-        mobileMenu.classList.add('translate-x-full');
-        if (mobileMenuOverlay) mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
-    };
-
-    // Open Menu
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.remove('translate-x-full');
-        if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling while menu is open
-    });
-
-    // Close on X click or Overlay click
-    closeMobileMenuBtn.addEventListener('click', closeMenu);
-    if (mobileMenuOverlay) mobileMenuOverlay.addEventListener('click', closeMenu);
-
-    // 🚀 Smooth Scroll & Auto-Close
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const targetId = link.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
-
-            if (targetElement) {
-                e.preventDefault(); // Stop default jump-glitch
-                
-                // 1. Close the sidebar first
-                closeMenu();
-
-                // 2. Wait a split second for the menu to clear, then scroll
-                setTimeout(() => {
-                    targetElement.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }, 300);
-            }
-        });
-    });
-}
 });
