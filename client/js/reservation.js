@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const reservationData = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('http://localhost:8080/api/reservations', {
+      const response = await fetch('https://amber-and-oak.onrender.com/api/reservations', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(reservationData),

@@ -1,5 +1,5 @@
 // Base URL for your Express server
-const API_URL = 'http://localhost:8080/api/reservations';
+const API_URL = 'https://amber-and-oak.onrender.com/api/reservations';
 
 // Fetch reservations when the page loads
 document.addEventListener('DOMContentLoaded', fetchReservations);

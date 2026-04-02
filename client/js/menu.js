@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 // Ensure this points to your running Express port!
-                const response = await fetch(`http://localhost:8080/api/reservations/${token}`);
+                const response = await fetch(`https://amber-and-oak.onrender.com/api/reservations/${token}`);
                 if (!response.ok) throw new Error('Reservation not found');
                 
                 const reservation = await response.json();
